@@ -1,0 +1,36 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/dash.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dash.css') }}">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap .css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">	
+</head>
+<body style="background-image: url('https://cdn-images-1.medium.com/max/1920/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg');">
+<br>
+<br>
+<div class="container" style="text-align: center">
+<h3>Register</h3><br>
+<form action="/registerAuth" method="POST">
+	<input class="form-control" type="text" name = "username" placeholder="username" required/><br> </br>
+	<input class="form-control" type="password" name = "password" placeholder="password" required/><br></br>
+	<input class="form-control" class="form-control" type="text" name = "fname" placeholder="First Name" required/><br> </br>
+	<input class="form-control" type="text" name = "lname" placeholder="Last Name" required/><br> </br>
+	<input class="btn" type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+</div>
+
+<script type="text/javascript" src="../static/css/jquery-3.2.1.js"></script>
+    <script src="{{url_for('static', filename='css/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="../static/css/bootstrap.js"></script>
+    <script src="{{url_for('static', filename='css/jquery-3.2.1.js')}}"></script>
+</body>
+
+
+</html>

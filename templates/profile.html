@@ -1,0 +1,85 @@
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap .css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+ 	<div class="navbar" style="background-image: url('http://www.eseriniauto.com/uploads/bg_black_gradient.jpg');">
+		<a href="/home"><img style="width: 35; height: 35; margin-top: 3; margin-left: 20;" src="http://www.borntoreignathletics.com/wp-content/uploads/2015/04/Born-to-Reign-Athletics-Pinterest-White-Icon.png" >	{% for group in proPic %} 
+	<img class="rounded-circle" width="30" height="30" src="{{group.pro_pic}}">
+	{% endfor %}</a>
+		<h1 style="color: white">PriCoSha</h1>
+		<a href="/logout">Logout</a>
+	</div>
+
+<div class="navbar" style="background-image: url('https://webgradients.com/public/webgradients_png/009%20Frozen%20Dreams.png');">
+<form action="/dash">
+		<input class="btn" type="submit" value = Dashboard style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/profile">
+		<input class="btn" type="submit" value = Profile style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+
+<form action="/friends" method="POST">
+	<input class="btn" type= "submit" name= "friends" value= "Friends" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/friendRequest" method="POST">
+	<input class="btn" type="submit" name = "search" value= "Friend Request" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/friendGroups" method="POST">
+	<input class="btn" type="submit" name = "friendGroups" value= "Friend Groups" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/yourRequests" method="POST">
+	<input class="btn" type="submit" name = "yourRequests" value= "Notifications" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+</div>
+</head>
+
+<br>
+
+
+<body>
+<h1 style="text-align: center;">Profile</h1>
+
+{% for group in proPic %} 
+	<img style="display: block; margin: auto;" class="rounded-circle" width="300" height="300" src="{{group.pro_pic}}">
+{% endfor %}
+
+{% for details in info %} 
+	<h2 style="text-align: center;">{{username}}</h2>
+	<h3 style="text-align: center;">{{details.first_name}} {{details.last_name}}</h3>
+{% endfor %}
+
+
+<br>
+<br>
+<br>
+<br>
+
+<a href=""><h3 style="text-align: center">Change Profile Picture?</h3></a>
+
+
+<form action="/changePic" method="POST">
+<input type="text" class="form-control" style="text-align: center;" name="newProPic" placeholder="Enter A Valid URL">
+<br>
+<div class="container" style="text-align: center">
+<input class="btn" type="submit" name="">
+</div>
+</form>
+
+
+
+
+
+<script type="text/javascript" src="../static/css/jquery-3.2.1.js"></script>
+    <script src="{{url_for('static', filename='css/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="../static/css/bootstrap.js"></script>
+    <script src="{{url_for('static', filename='css/jquery-3.2.1.js')}}"></script>
+</body>
+

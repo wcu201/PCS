@@ -1,0 +1,21 @@
+
+<head>
+<link rel="stylesheet" href="css/dash.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dash.css') }}">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap .css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <h1>Comments</h1>
+</head>
+<body>
+
+{% for line in comments %}
+				<h5>{{line.text}}</h5>
+			{% endfor %}
+<script type="text/javascript" src="../static/css/jquery-3.2.1.js"></script>
+    <script src="{{url_for('static', filename='css/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="../static/css/bootstrap.js"></script>
+    <script src="{{url_for('static', filename='css/jquery-3.2.1.js')}}"></script>
+</body>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap .css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<div><h1 style="text-align: center;">PriCoSha</h1></div>
+
+<body style="background-image: url('https://cdn-images-1.medium.com/max/1920/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg');">
+<div class="container" style="text-align: center">
+<h2><br><br><br>
+{% if not message %}
+	<a href="/login">Login</a><br><br><br><br><br><br>
+	<a href="/register">Register</a><br>
+{% endif %}
+
+{% if message %}
+	<a href="/logout">Logout</a>
+	<a href="/remove_account">Remove Account</a>
+	<p class="message">You are logged in {{message}}. You have {{num}} follower(s)</p> </br>
+	<a href="/tweets">View your tweets</a> </br>
+	<a href="/find_people">Find people to follow</a> </br>
+	<a href="/unfollow">Unfollow someone</a> </br>
+	<a href="/view_followed">View people you have followed</a> </br>
+	</br>
+
+        <h4>15 most recent tweets from you and your followers </h4> </br>
+
+	{% for line in tweets%}
+	        <p>{{line}}</p>
+	        <hr>
+	{% endfor %}
+	{% endif %}
+	</h2>
+	</div>
+
+
+<script type="text/javascript" src="../static/css/jquery-3.2.1.js"></script>
+    <script src="{{url_for('static', filename='css/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="../static/css/bootstrap.js"></script>
+    <script src="{{url_for('static', filename='css/jquery-3.2.1.js')}}"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,110 @@
+<head>
+<link rel="stylesheet" href="css/dash.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dash.css') }}">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap .css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">	
+
+	<div class="navbar" style="background-image: url('http://www.eseriniauto.com/uploads/bg_black_gradient.jpg');">
+		<a href="/home"><img style="width: 35; height: 35; margin-top: 3; margin-left: 20;" src="http://www.borntoreignathletics.com/wp-content/uploads/2015/04/Born-to-Reign-Athletics-Pinterest-White-Icon.png" >	{% for group in proPic %} 
+	<img class="rounded-circle" width="30" height="30" src="{{group.pro_pic}}">
+	{% endfor %}</a>
+		<h1 style="color: white">PriCoSha</h1>
+		<a href="/logout">Logout</a>
+	</div>
+
+<div class="navbar" style="background-image: url('https://webgradients.com/public/webgradients_png/009%20Frozen%20Dreams.png');">
+<form action="/dash">
+		<input class="btn" type="submit" value = Dashboard style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/profile">
+		<input class="btn" type="submit" value = Profile style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+
+<form action="/friends" method="POST">
+	<input class="btn" type= "submit" name= "friends" value= "Friends" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/friendRequest" method="POST">
+	<input class="btn" type="submit" name = "search" value= "Send Request" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/friendGroups" method="POST">
+	<input class="btn" type="submit" name = "friendGroups" value= "Friend Groups" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+
+<form action="/yourRequests" method="POST">
+	<input class="btn" type="submit" name = "yourRequests" value= "Notifications" style="color:rgba(0, 0, 0, .7); background: transparent; font-size: 20">
+</form>
+</div>
+
+</head>
+
+<!--<form action="/searchFriends" method="POST">
+	<p><input class = "form-control" type="text" name="search" value = "" placeholder="Search People" required></p>
+	<p class="submit"><input class = "btn" type="submit" name="commit" value="Search"></p>
+</form>-->
+
+<body>
+<br>
+
+<!--<form action="/sendRequest" method="GET">
+<div class="boxes" style="width: 100%; text-align: center">
+  <div class="box leftbox" style="float: left;"></div>
+	<div class="panel-body" style="width:60%; height:150px; display:inline-block">
+		<table class="table" border="1" cellpadding="5" cellspacing="5">
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Username</th>
+				<th>Request</th>
+
+			{% for line in newfriends %}
+				<tr>
+					<td name = "First Name"> {{line.firstname}}</td>
+					<td name = "Last Name">{{line.lastname}}</td>
+					<td name = "Username">{{line.username}}</td>
+					<td name = "Request">
+            <input class="radio" type="submit" name="commit" value="Request">
+          </td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+<div class="box rightbox" style="float: right;"></div>
+</div>
+
+</form>-->
+<h3>Friend Request</h3>
+<form action="/sendRequest" method="POST">
+	<input type="text" name="user">
+	<input class="btn" type="submit" name="commit" value="Request">
+</form>
+
+<h3>Tag Request</h3>
+<form action="/tagRequest" method="POST">
+
+	<select name="content">
+	{% for line in content %}
+	<option>{{line.ID}}</option>
+	{% endfor %}
+	</select>
+	<select name="users">
+	{% for line in users %}
+	<option>{{line.username}}</option>
+	{% endfor %}
+	</select>
+
+	<input class="btn" type="submit" name="commit" value="Request">
+</form>
+
+
+
+ <script type="text/javascript" src="../static/css/jquery-3.2.1.js"></script>
+     <script src="{{url_for('static', filename='css/jquery-3.2.1.js')}}"></script>	
+    <script src="{{url_for('static', filename='css/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="../static/css/bootstrap.js"></script>
+	
+</body>
